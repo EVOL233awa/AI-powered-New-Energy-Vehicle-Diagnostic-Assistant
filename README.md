@@ -154,13 +154,16 @@ Storage
 
 ## 项目截图
 
-（可在此处添加项目截图）
+<img width="2546" height="1391" alt="image" src="https://github.com/user-attachments/assets/b164b735-386f-4050-80be-3ab8e7c701d9" />
+
 
 ---
 
 ## 在线体验
 
 GitHub Pages：
+
+https://evol233awa.github.io/AI-powered-New-Energy-Vehicle-Diagnostic-Assistant/
 
 ```text
 待部署
