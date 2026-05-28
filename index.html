@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新能源汽车故障诊断助手</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-brand">
+      <h1>新能源汽车故障诊断助手</h1>
+      <p class="subtitle">新能源汽车维修工程师 · 故障分析 · 原因推断 · 排查建议</p>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn-ghost" id="clearBtn">新话题</button>
+      <button type="button" class="btn-ghost" id="settingsToggle">API 设置</button>
+    </div>
+  </header>
+
+  <section class="settings-panel" id="settingsPanel">
+    <div class="field">
+      <label for="apiKey">API Key</label>
+      <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off" />
+      <p class="field-hint">OpenAI 兼容接口的密钥（DeepSeek / OpenAI / 中转服务等）</p>
+    </div>
+    <div class="field">
+      <label for="apiBase">Base URL</label>
+      <input type="text" id="apiBase" value="https://api.deepseek.com" spellcheck="false" />
+      <p class="field-hint">不含 /chat/completions，例如 https://api.openai.com/v1 或 https://api.deepseek.com</p>
+    </div>
+    <div class="field">
+      <label for="model">模型名称</label>
+      <input type="text" id="model" value="deepseek-chat" list="modelSuggestions" spellcheck="false" />
+      <datalist id="modelSuggestions">
+        <option value="deepseek-chat"></option>
+        <option value="deepseek-reasoner"></option>
+        <option value="gpt-4o-mini"></option>
+        <option value="gpt-4o"></option>
+      </datalist>
+    </div>
+  </section>
+
+  <main id="chat"></main>
+
+  <footer>
+    <form id="diagForm" class="diag-form" novalidate>
+      <div class="form-field">
+        <label for="formDesc">问题描述 <span class="req">*</span></label>
+        <textarea
+          id="formDesc"
+          name="description"
+          rows="3"
+          required
+          placeholder="描述你的问题（例如：电池续航突然下降，天冷后更明显）"
+        ></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" id="sendBtn">提交诊断</button>
+      </div>
+    </form>
+    <div id="supplementPanel" class="supplement-panel" aria-live="polite">
+      <p class="supplement-title" id="supplementTitle">
+        分析完了想更准确？点下面选项补充一下，再点「补充并继续诊断」就行。
+      </p>
+      <div class="supplement-group">
+        <span class="supplement-label">环境温度</span>
+        <div class="chip-row" id="chipsTemp" data-field="temperature"></div>
+      </div>
+      <div class="supplement-group">
+        <span class="supplement-label">使用年限</span>
+        <div class="chip-row" id="chipsYears" data-field="years"></div>
+      </div>
+      <div class="supplement-group">
+        <span class="supplement-label">是否频繁快充</span>
+        <div class="chip-row" id="chipsFastCharge" data-field="fastCharge"></div>
+      </div>
+      <div class="supplement-actions">
+        <button type="button" id="supplementSubmitBtn">补充并继续诊断</button>
+      </div>
+    </div>
+    <p class="hint" id="footerHint"></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
