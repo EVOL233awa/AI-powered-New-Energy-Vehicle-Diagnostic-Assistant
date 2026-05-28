@@ -222,7 +222,7 @@ https://evol233awa.github.io/AI-powered-New-Energy-Vehicle-Diagnostic-Assistant/
 
 ## 作者
 
-EVOL233awa
+EvoidNGC
 
 聚焦方向：
 
