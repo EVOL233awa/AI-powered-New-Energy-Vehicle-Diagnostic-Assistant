@@ -165,10 +165,6 @@ GitHub Pages：
 
 https://evol233awa.github.io/AI-powered-New-Energy-Vehicle-Diagnostic-Assistant/
 
-```text
-待部署
-```
-
 ---
 
 ## 使用方法
